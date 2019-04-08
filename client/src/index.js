@@ -9,11 +9,16 @@ import "assets/css/demo.css";
 
 import App from "./components/Main/App";
 
+import { Provider } from "react-redux";
+import configureStore from "../src/redux/store";
+
 const hist = createBrowserHistory();
 
 ReactDOM.render(
-  <Router history={hist}>
-    <App />
-  </Router>,
+  <Provider store={configureStore()}>
+    <Router history={hist}>
+      <App />
+    </Router>
+  </Provider>,
   document.getElementById("root")
 );
