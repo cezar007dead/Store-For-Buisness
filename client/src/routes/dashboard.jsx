@@ -91,14 +91,14 @@ var dashRoutes = [
     icon: "now-ui-icons files_single-copy-04",
     component: Information
   },
-  {
-    navigaton: true,
-    pro: true,
-    path: "/upgrade",
-    name: "Upgrade to PRO",
-    icon: "objects_spaceship",
-    component: Upgrade
-  },
+  // {
+  //   navigaton: true,
+  //   pro: true,
+  //   path: "/upgrade",
+  //   name: "Upgrade to PRO",
+  //   icon: "objects_spaceship",
+  //   component: Upgrade
+  // },
   {
     navigation: false,
     path: "/account",

@@ -16,6 +16,8 @@ import * as schemas from "../../Shcemas/productSchemas";
 import { PanelHeader } from "components";
 import { debuglog } from "util";
 
+import { withRouter } from "react-router-dom";
+
 class ProductCreate extends React.Component {
   constructor(props) {
     super(props);
@@ -328,4 +330,4 @@ class ProductCreate extends React.Component {
   }
 }
 
-export default ProductCreate;
+export default withRouter(ProductCreate);

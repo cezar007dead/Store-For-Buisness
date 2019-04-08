@@ -38,7 +38,6 @@ class Dashboard extends React.Component {
           <Switch {...this.props}>
             {dashboardRoutes.map((prop, key) => {
               if (prop.collapse) {
-                debugger;
                 return prop.views.map((prop2, key2) => {
                   return (
                     <Route

@@ -29,11 +29,9 @@ class Aliexpress extends React.Component {
   };
 
   GetResult = query => {
-    debugger;
     scrapingService
       .getAliexpress(query)
       .then(response => {
-        debugger;
         this.setState({ info: response.data.item });
       })
       .catch();

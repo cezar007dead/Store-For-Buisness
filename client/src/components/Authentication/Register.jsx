@@ -40,7 +40,6 @@ class Register extends React.Component {
   };
 
   handleSubmit = (values, obj) => {
-    debugger;
     var data = {
       Email: values.email,
       Password: values.password,

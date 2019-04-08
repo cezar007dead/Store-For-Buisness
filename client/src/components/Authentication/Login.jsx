@@ -54,7 +54,6 @@ class Login extends React.Component {
         window.location.reload();
       })
       .catch(r => {
-        debugger;
         if (r.response === undefined) {
           this.setState({ showErrorServer: "" });
         } else {
@@ -72,12 +71,8 @@ class Login extends React.Component {
   check = () => {
     service
       .logout()
-      .then(() => {
-        debugger;
-      })
-      .catch(() => {
-        debugger;
-      });
+      .then(() => {})
+      .catch(() => {});
   };
 
   render() {

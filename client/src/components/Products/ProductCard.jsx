@@ -85,8 +85,7 @@ class ProductCard extends React.Component {
               </div>
               <Col xs={6} md={4}>
                 <img
-                  height="100%"
-                  width="100%"
+                  style={{ "max-width": "100%", height: "auto" }}
                   src={`${this.state.product.photoUrl}`}
                   rounded
                 />

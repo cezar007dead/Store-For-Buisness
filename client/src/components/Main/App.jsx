@@ -8,6 +8,10 @@ import * as service from "../../service/AuthenticationService";
 import Login from "../../components/Authentication/Login";
 import Register from "../../components/Authentication/Register";
 
+import { withRouter } from "react-router-dom";
+
+import { connect } from "react-redux";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -39,6 +43,17 @@ class App extends React.Component {
                   />
                 );
               }}
+              //currentUser={this.state.currentUser}
+              // component={prop.component}
+              // component={props => {
+              //   debugger;
+              //   return (
+              //     <prop.component
+              //       {...props}
+              //       currentUser={this.state.currentUser}
+              //     />
+              //   );
+              // }}
             />
           );
         })}
@@ -51,5 +66,8 @@ class App extends React.Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  ...state
+});
 
-export default App;
+export default withRouter(connect(mapStateToProps)(App));

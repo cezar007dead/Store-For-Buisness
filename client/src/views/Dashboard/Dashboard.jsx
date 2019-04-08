@@ -28,7 +28,18 @@ import {
 
 import { tasks } from "variables/general.jsx";
 
+import { connect } from "react-redux";
+import { getCurrencyActionAsnc } from "../../redux/actions/curencyActions";
+
+import { withRouter } from "react-router-dom";
+
+import * as currencyService from "../../service/CurrencyService";
+
 class Dashboard extends React.Component {
+  componentDidMount() {
+    debugger;
+    this.props.getCurrencyActionAsnc("USD");
+  }
   render() {
     return (
       <div>
@@ -46,7 +57,12 @@ class Dashboard extends React.Component {
             <Col xs={12} md={4}>
               <Card className="card-chart">
                 <CardHeader>
-                  <CardCategory>Global Sales</CardCategory>
+                  <CardCategory>
+                    Global Sales
+                    {this.props.currency !== null
+                      ? this.props.currency.rates.AUD
+                      : console.log(this.props.currency)}
+                  </CardCategory>
                   <CardTitle tag="h4">Shipped Products</CardTitle>
                   <UncontrolledDropdown>
                     <DropdownToggle
@@ -230,5 +246,29 @@ class Dashboard extends React.Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  ...state
+});
 
-export default Dashboard;
+// const mapStateToProps = state => {
+//   debugger;
+//   return {
+//     weatherData: state.weatherData
+//   };
+// };
+
+const mapDispatchToProps = dispatch => ({
+  getCurrencyActionAsnc: val => {
+    debugger;
+    dispatch(getCurrencyActionAsnc(val));
+  }
+});
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Dashboard)
+);
+
+//export default Dashboard;
