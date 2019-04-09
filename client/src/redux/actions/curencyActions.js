@@ -12,7 +12,7 @@ export const getCurrencyActionAsnc = currencyType => {
     let date = localStorage.getItem("date");
 
     if (currencyData !== null) {
-      if (Date.now() - date <= 3600000) {
+      if (Date.now() - date <= 43200000) {
         dispach(getCurrencyAction(currencyData));
       } else {
         service

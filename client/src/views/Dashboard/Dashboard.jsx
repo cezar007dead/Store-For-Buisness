@@ -17,6 +17,8 @@ import {
 import { Line, Bar } from "react-chartjs-2";
 // function that returns a color based on an interval of numbers
 
+import { Icon } from "semantic-ui-react";
+
 import { PanelHeader, Stats, CardCategory, Tasks } from "components";
 
 import {
@@ -57,11 +59,149 @@ class Dashboard extends React.Component {
             <Col xs={12} md={4}>
               <Card className="card-chart">
                 <CardHeader>
+                  <CardCategory>Currency Rates</CardCategory>
+                  <CardTitle tag="h4">Shipped Products</CardTitle>
+                  <UncontrolledDropdown>
+                    <DropdownToggle
+                      className="btn-round btn-simple btn-icon"
+                      color="default"
+                    >
+                      {" "}
+                      <i className="now-ui-icons loader_gear" />
+                    </DropdownToggle>
+
+                    <DropdownMenu right>
+                      <DropdownItem>Action</DropdownItem>
+                      <DropdownItem>Another Action</DropdownItem>
+                      <DropdownItem>Something else here</DropdownItem>
+                      <DropdownItem className="text-danger">
+                        Remove data
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
+                </CardHeader>
+                <CardBody>
+                  <div className="chart-area">
+                    <Row>
+                      <Col xs={1}>
+                        <Icon
+                          name="dollar sign"
+                          style={{ marginLeft: "10px" }}
+                          size="big"
+                          color="orange"
+                        />
+                      </Col>{" "}
+                      <Col>
+                        <p
+                          style={{
+                            color: "#f2711c",
+                            fontSize: "23px",
+                            marginLeft: "10px"
+                          }}
+                        >
+                          Based By 1 Dollar
+                        </p>
+                      </Col>
+                    </Row>
+                    <Row style={{ marginLeft: "10px", marginTop: "10px" }}>
+                      <Col md={1}>
+                        <Icon name="euro sign" size="large" />
+                      </Col>
+                      <Col>
+                        <p
+                          style={{
+                            fontSize: "17px"
+                          }}
+                        >
+                          {this.props.currency !== null
+                            ? `= ${this.props.currency.rates.EUR}`
+                            : ""}
+                        </p>
+                      </Col>
+                    </Row>
+                    <Row style={{ marginLeft: "10px" }}>
+                      <Col md={1}>
+                        <Icon name="lira sign" size="large" />
+                      </Col>
+                      <Col>
+                        <p
+                          style={{
+                            fontSize: "17px"
+                          }}
+                        >
+                          {this.props.currency !== null
+                            ? `= ${this.props.currency.rates.TRY}`
+                            : ""}
+                        </p>
+                      </Col>
+                    </Row>
+                    <Row style={{ marginLeft: "10px" }}>
+                      <Col md={1}>
+                        <Icon name="pound sign" size="large" />
+                      </Col>
+                      <Col>
+                        <p
+                          style={{
+                            fontSize: "17px"
+                          }}
+                        >
+                          {this.props.currency !== null
+                            ? `= ${this.props.currency.rates.GBP}`
+                            : ""}
+                        </p>
+                      </Col>
+                    </Row>
+                    <Row style={{ marginLeft: "10px" }}>
+                      <Col md={1}>
+                        <Icon name="ruble sign" size="large" />
+                      </Col>
+                      <Col>
+                        <p
+                          style={{
+                            fontSize: "17px"
+                          }}
+                        >
+                          {this.props.currency !== null
+                            ? `= ${this.props.currency.rates.RUB}`
+                            : ""}
+                        </p>
+                      </Col>
+                    </Row>
+                    <Row style={{ marginLeft: "10px" }}>
+                      <Col md={1}>
+                        <Icon name="yen sign" size="large" />
+                      </Col>
+                      <Col>
+                        <p
+                          style={{
+                            fontSize: "17px"
+                          }}
+                        >
+                          {this.props.currency !== null
+                            ? `= ${this.props.currency.rates.JPY}`
+                            : ""}
+                        </p>
+                      </Col>
+                    </Row>
+                  </div>
+                </CardBody>
+                <CardFooter>
+                  <Stats>
+                    {[
+                      {
+                        i: "now-ui-icons arrows-1_refresh-69",
+                        t: "Just Updated"
+                      }
+                    ]}
+                  </Stats>
+                </CardFooter>
+              </Card>
+            </Col>
+            {/* <Col xs={12} md={4}>
+              <Card className="card-chart">
+                <CardHeader>
                   <CardCategory>
                     Global Sales
-                    {this.props.currency !== null
-                      ? this.props.currency.rates.AUD
-                      : console.log(this.props.currency)}
                   </CardCategory>
                   <CardTitle tag="h4">Shipped Products</CardTitle>
                   <UncontrolledDropdown>
@@ -100,7 +240,7 @@ class Dashboard extends React.Component {
                   </Stats>
                 </CardFooter>
               </Card>
-            </Col>
+            </Col> */}
             <Col xs={12} md={4}>
               <Card className="card-chart">
                 <CardHeader>
