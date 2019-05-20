@@ -58,6 +58,17 @@ let getById = id => {
   return axios(config);
 };
 
+let getByUserId = userId => {
+  const config = {
+    url: mainUrl + "/userId/" + userId,
+    method: "GET",
+    withCredentials: true,
+    crossdomain: true,
+    headers: { "Content-Type": "application/json" }
+  };
+  return axios(config);
+};
+
 let remove = id => {
   const config = {
     url: mainUrl + "/" + id,
@@ -74,5 +85,6 @@ export {
   getByPageIndexPageSizeType,
   getByPIndexSizeSearch,
   getById,
+  getByUserId,
   remove
 };

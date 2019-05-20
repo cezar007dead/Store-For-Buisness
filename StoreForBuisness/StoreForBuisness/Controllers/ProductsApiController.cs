@@ -91,5 +91,13 @@ namespace StoreForBuisness.Controllers
 
             return Request.CreateResponse(HttpStatusCode.Created, responseBody);
         }
+        [Route("userId/{userId:int}"), HttpGet]
+        public HttpResponseMessage GetByUserId(int userId)
+        {
+            ItemResponse<List<Product>> responseBody = new ItemResponse<List<Product>>();
+            responseBody.Item = _service.SellectByUserId(userId);
+
+            return Request.CreateResponse(HttpStatusCode.Created, responseBody);
+        }
     }
 }
