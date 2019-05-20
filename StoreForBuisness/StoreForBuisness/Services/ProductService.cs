@@ -175,6 +175,33 @@ namespace StoreForBuisness.Services
             return product;
         }
 
+        public List<Product> SellectByUserId(int userId)
+        {
+            List<Product> list = null;
+            int totalCount = 0;
+            using (var con = GetConnection())
+            {
+                var cmd = con.CreateCommand();
+                cmd.CommandText = "[dbo].[Product_GetByUserId]";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id", userId);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Product product = Mapper(reader);
+                    if (list == null)
+                    {
+                        list = new List<Product>();
+                    }
+                    list.Add(product);
+                }
+
+
+            }
+
+            return list;
+        }
+
         private Product Mapper(SqlDataReader reader)
         {
             Product product = new Product();

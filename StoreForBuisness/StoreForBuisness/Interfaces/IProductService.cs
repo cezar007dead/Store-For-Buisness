@@ -23,5 +23,7 @@ namespace StoreForBuisness.Interfaces
         Product SellectById(int id);
 
         void Update(ProductUpdateRequest data);
+
+        List<Product> SellectByUserId(int userId);
     }
 }

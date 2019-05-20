@@ -5,9 +5,7 @@ export const getCurrencyAction = data => {
 };
 
 export const getCurrencyActionAsnc = currencyType => {
-  debugger;
   return dispach => {
-    debugger;
     let currencyData = JSON.parse(localStorage.getItem("currencyData"));
     let date = localStorage.getItem("date");
 

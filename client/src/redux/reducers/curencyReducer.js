@@ -1,5 +1,4 @@
 export default (state, action) => {
-  debugger;
   switch (action.type) {
     case "currency":
       return {

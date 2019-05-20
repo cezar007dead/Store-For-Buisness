@@ -9,8 +9,6 @@ const initialState = {
 };
 
 function configureStore(state = initialState) {
-  debugger;
-
   return createStore(
     curencyReducer,
     state,
